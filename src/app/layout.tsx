@@ -96,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang='fa' dir='rtl'>
       <body
-        className={`${dana.variable} ${firaSans.variable} bg-bg-primary  min-h-screen`}
+        className={`${dana.variable} ${firaSans.variable} bg-bg-primary text-text-primary min-h-screen`}
       >
         <UIProviders>{children}</UIProviders>
       </body>
