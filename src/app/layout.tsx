@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Fira_Sans } from 'next/font/google';
 import './globals.css';
+import { UIProviders } from '@/providers/uiProviders';
 
 const firaSans = Fira_Sans({
   subsets: ['latin'],
@@ -93,9 +94,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${dana.variable} ${firaSans.variable} `}>
-        {children}
+    <html lang='fa' dir='rtl'>
+      <body
+        className={`${dana.variable} ${firaSans.variable} bg-bg-primary text-text-primary min-h-screen`}
+      >
+        <UIProviders>{children}</UIProviders>
       </body>
     </html>
   );

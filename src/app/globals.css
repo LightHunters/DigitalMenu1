@@ -1,41 +1,266 @@
 @import 'tailwindcss';
+@plugin '../configs/hero.ts';
+/* Note: You may need to change the path to fit your project structure */
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --bg-primary: oklch(18.72% 0.002 286.2);
-  --bg-search: oklch(47.84% 0 0);
-  --text-secondary: oklch(65.34% 0 0);
-  --text-hover: oklch(78.91% 0.1213 60.2);
-  --text-primary: oklch(94.61% 0 0);
+  /* Base Colors - بر اساس عکس - OKLCH Format */
+  --color-white: oklch(100% 0 0);
+  --color-black: oklch(0% 0 0);
+  --color-gray-50: oklch(98.5% 0 0);
+  --color-gray-100: oklch(96.5% 0 0);
+  --color-gray-200: oklch(91% 0 0);
+  --color-gray-300: oklch(84% 0 0);
+  --color-gray-400: oklch(65% 0 0);
+  --color-gray-500: oklch(48% 0 0);
+  --color-gray-600: oklch(36% 0 0);
+  --color-gray-700: oklch(26% 0 0);
+  --color-gray-800: oklch(18% 0 0);
+  --color-gray-900: oklch(12% 0 0);
 
-  /* Radius */
-  --radius-search: 30px;
-  --radius-box: 8px;
-  --radius-image: 15px;
+  /* Primary Colors - نارنجی دکمه مشاهده همه - OKLCH */
+  --color-orange-50: oklch(98% 0.02 70);
+  --color-orange-100: oklch(95% 0.05 70);
+  --color-orange-200: oklch(90% 0.1 70);
+  --color-orange-300: oklch(82% 0.15 70);
+  --color-orange-400: oklch(72% 0.18 70);
+  --color-orange-500: oklch(62% 0.2 70);
+  --color-orange-600: oklch(52% 0.18 70);
+  --color-orange-700: oklch(42% 0.15 70);
+  --color-orange-800: oklch(32% 0.12 70);
+  --color-orange-900: oklch(25% 0.1 70);
 
-  /* Shadow */
-  --shadow-x: 0;
-  --shadow-y: 17.49px;
-  --shadow-blur: 31.1px;
-  --shadow-spread: 0;
-  --shadow-color: rgba(0, 0, 0, 0.58);
-  --shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
-    var(--shadow-spread) var(--shadow-color);
+  /* Accent Colors - آبی روشن دسته‌بندی انتخاب شده - OKLCH */
+  --color-blue-50: oklch(97% 0.02 250);
+  --color-blue-100: oklch(94% 0.05 250);
+  --color-blue-200: oklch(88% 0.1 250);
+  --color-blue-300: oklch(78% 0.15 250);
+  --color-blue-400: oklch(68% 0.18 250);
+  --color-blue-500: oklch(58% 0.2 250);
+  --color-blue-600: oklch(48% 0.18 250);
+  --color-blue-700: oklch(38% 0.15 250);
+  --color-blue-800: oklch(28% 0.12 250);
+  --color-blue-900: oklch(22% 0.1 250);
+
+  /* Background Colors */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-50);
+  --bg-tertiary: var(--color-gray-100);
+  --bg-overlay: color-mix(in oklch, var(--color-black) 40%, transparent);
+  --bg-header-overlay: color-mix(in oklch, var(--color-black) 30%, transparent);
+
+  /* Text Colors */
+  --text-primary: var(--color-gray-900);
+  --text-secondary: var(--color-gray-700);
+  --text-tertiary: var(--color-gray-500);
+  --text-disabled: var(--color-gray-400);
+  --text-inverse: var(--color-white);
+  --text-on-orange: var(--color-white);
+  --text-on-blue: var(--color-white);
+
+  /* Border Colors */
+  --border-default: var(--color-gray-200);
+  --border-hover: var(--color-gray-300);
+  --border-focus: var(--color-blue-500);
+  --border-error: var(--color-orange-600);
+
+  /* Interactive Colors */
+  --interactive-primary: var(--color-orange-500);
+  --interactive-primary-hover: var(--color-orange-600);
+  --interactive-primary-active: var(--color-orange-700);
+  --interactive-secondary: var(--color-blue-500);
+  --interactive-secondary-hover: var(--color-blue-600);
+  --interactive-secondary-active: var(--color-blue-700);
+
+  /* Category Selected - آبی روشن */
+  --category-selected-bg: var(--color-blue-100);
+  --category-selected-text: var(--color-blue-700);
+  --category-default-bg: var(--color-white);
+  --category-default-text: var(--color-gray-700);
+
+  /* Card Colors */
+  --card-bg: var(--color-white);
+  --card-border: var(--color-gray-200);
+  --card-shadow: 0 1px 3px 0
+      color-mix(in oklch, var(--color-black) 10%, transparent),
+    0 1px 2px -1px color-mix(in oklch, var(--color-black) 10%, transparent);
+  --card-shadow-hover: 0 4px 6px -1px color-mix(in oklch, var(--color-black) 10%, transparent),
+    0 2px 4px -2px color-mix(in oklch, var(--color-black) 10%, transparent);
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-2xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+  --radius-card: var(--radius-lg);
+  --radius-button: var(--radius-md);
+  --radius-category: var(--radius-lg);
+  --radius-image: var(--radius-xl);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0
+    color-mix(in oklch, var(--color-black) 5%, transparent);
+  --shadow-sm: 0 1px 3px 0
+      color-mix(in oklch, var(--color-black) 10%, transparent),
+    0 1px 2px -1px color-mix(in oklch, var(--color-black) 10%, transparent);
+  --shadow-md: 0 4px 6px -1px color-mix(in oklch, var(--color-black) 10%, transparent),
+    0 2px 4px -2px color-mix(in oklch, var(--color-black) 10%, transparent);
+  --shadow-lg: 0 10px 15px -3px color-mix(in oklch, var(--color-black) 10%, transparent),
+    0 4px 6px -4px color-mix(in oklch, var(--color-black) 10%, transparent);
+  --shadow-xl: 0 20px 25px -5px color-mix(in oklch, var(--color-black) 10%, transparent),
+    0 8px 10px -6px color-mix(in oklch, var(--color-black) 10%, transparent);
+  --shadow-2xl: 0 25px 50px -12px color-mix(in oklch, var(--color-black) 25%, transparent);
+  --shadow-inner: inset 0 2px 4px 0
+    color-mix(in oklch, var(--color-black) 5%, transparent);
+
+  /* Typography */
+  --font-dana: var(--font-dana);
+  --font-fira-sans: var(--font-fira-sans);
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @theme {
+  /* Color System */
   --color-*: initial;
-  --radius-*: initial;
-  --shadow-*: initial;
+  --color-white: var(--color-white);
+  --color-black: var(--color-black);
+  --color-gray-50: var(--color-gray-50);
+  --color-gray-100: var(--color-gray-100);
+  --color-gray-200: var(--color-gray-200);
+  --color-gray-300: var(--color-gray-300);
+  --color-gray-400: var(--color-gray-400);
+  --color-gray-500: var(--color-gray-500);
+  --color-gray-600: var(--color-gray-600);
+  --color-gray-700: var(--color-gray-700);
+  --color-gray-800: var(--color-gray-800);
+  --color-gray-900: var(--color-gray-900);
+
+  --color-orange-50: var(--color-orange-50);
+  --color-orange-100: var(--color-orange-100);
+  --color-orange-200: var(--color-orange-200);
+  --color-orange-300: var(--color-orange-300);
+  --color-orange-400: var(--color-orange-400);
+  --color-orange-500: var(--color-orange-500);
+  --color-orange-600: var(--color-orange-600);
+  --color-orange-700: var(--color-orange-700);
+  --color-orange-800: var(--color-orange-800);
+  --color-orange-900: var(--color-orange-900);
+
+  --color-blue-50: var(--color-blue-50);
+  --color-blue-100: var(--color-blue-100);
+  --color-blue-200: var(--color-blue-200);
+  --color-blue-300: var(--color-blue-300);
+  --color-blue-400: var(--color-blue-400);
+  --color-blue-500: var(--color-blue-500);
+  --color-blue-600: var(--color-blue-600);
+  --color-blue-700: var(--color-blue-700);
+  --color-blue-800: var(--color-blue-800);
+  --color-blue-900: var(--color-blue-900);
+
+  /* Semantic Colors */
   --color-bg-primary: var(--bg-primary);
-  --color-bg-search: var(--bg-search);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-hover: var(--text-hover);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-bg-overlay: var(--bg-overlay);
+  --color-bg-header-overlay: var(--bg-header-overlay);
+
   --color-text-primary: var(--text-primary);
-  --radius-search: var(--radius-search);
-  --radius-box: var(--radius-box);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-disabled: var(--text-disabled);
+  --color-text-inverse: var(--text-inverse);
+  --color-text-on-orange: var(--text-on-orange);
+  --color-text-on-blue: var(--text-on-blue);
+
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+  --color-border-focus: var(--border-focus);
+  --color-border-error: var(--border-error);
+
+  --color-interactive-primary: var(--interactive-primary);
+  --color-interactive-primary-hover: var(--interactive-primary-hover);
+  --color-interactive-primary-active: var(--interactive-primary-active);
+  --color-interactive-secondary: var(--interactive-secondary);
+  --color-interactive-secondary-hover: var(--interactive-secondary-hover);
+  --color-interactive-secondary-active: var(--interactive-secondary-active);
+
+  --color-category-selected-bg: var(--category-selected-bg);
+  --color-category-selected-text: var(--category-selected-text);
+  --color-category-default-bg: var(--category-default-bg);
+  --color-category-default-text: var(--category-default-text);
+
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+
+  /* Spacing */
+  --spacing-*: initial;
+  --spacing-xs: var(--spacing-xs);
+  --spacing-sm: var(--spacing-sm);
+  --spacing-md: var(--spacing-md);
+  --spacing-lg: var(--spacing-lg);
+  --spacing-xl: var(--spacing-xl);
+  --spacing-2xl: var(--spacing-2xl);
+  --spacing-3xl: var(--spacing-3xl);
+
+  /* Border Radius */
+  --radius-*: initial;
+  --radius-none: var(--radius-none);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+  --radius-card: var(--radius-card);
+  --radius-button: var(--radius-button);
+  --radius-category: var(--radius-category);
   --radius-image: var(--radius-image);
-  --shadow: var(--shadow);
-  --shadow-drop: var(--shadow-x) var(--shadow-y) var(--shadow-blur);
+
+  /* Shadows */
+  --shadow-*: initial;
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+  --shadow-inner: var(--shadow-inner);
+  --shadow-card: var(--card-shadow);
+  --shadow-card-hover: var(--card-shadow-hover);
 }
 
 @layer base {
