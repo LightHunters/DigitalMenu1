@@ -5,9 +5,9 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerBody,
-  Button,
   useDisclosure,
 } from '@heroui/react';
+import { Button } from '@/components/CustomButton';
 import MenuIcon from '@/../public/icons/menu.svg';
 import MenuCloseIcon from '@/../public/icons/menu.svg';
 
@@ -68,9 +68,9 @@ const MenuHamburger = ({ onCategorySelect }: MenuHamburgerProps) => {
                   {menuCategories.map((category, index) => (
                     <Button
                       key={index}
-                      variant='flat'
-                      className='w-full justify-start h-14 text-right border border-gray-200! 
-                       text-gray-900 font-medium rounded-lg bg-white'
+                      variant='solid'
+                      color='menu-item-white'
+                      fullWidth
                       onPress={() => handleCategoryClick(category)}
                     >
                       {category}

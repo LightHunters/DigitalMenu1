@@ -18,6 +18,9 @@ export const Button = extendVariants(HeroButton, {
       // Category default - برای دسته‌بندی‌های غیرفعال
       'category-default':
         'bg-category-default-bg text-category-default-text border border-border-default hover:bg-gray-50 hover:border-border-hover transition-all duration-200 font-medium',
+      // Menu item white - سفید با border برای آیتم‌های منو
+      'menu-item-white':
+        'bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 font-medium rounded-lg justify-start text-right h-14',
       // Neutral variants
       white:
         'bg-white text-text-primary border border-border-default hover:bg-gray-50 hover:border-border-hover shadow-sm hover:shadow-md transition-all duration-200 font-medium',
@@ -93,6 +96,12 @@ export const Button = extendVariants(HeroButton, {
       class:
         'border-category-selected-text text-category-selected-text hover:bg-category-selected-bg',
     },
+    {
+      variant: 'solid',
+      color: 'menu-item-white',
+      class:
+        'bg-white text-gray-900 border border-gray-200 hover:!bg-gray-50 hover:!border-gray-300 active:bg-gray-100 justify-start text-right h-14 rounded-lg',
+    },
     // Ghost variants
     {
       variant: 'ghost',
@@ -116,6 +125,18 @@ export const Button = extendVariants(HeroButton, {
       color: 'secondary',
       class:
         'bg-interactive-secondary/10 text-interactive-secondary border-interactive-secondary/20',
+    },
+    {
+      variant: 'outline',
+      color: 'menu-item-white',
+      class:
+        'bg-white text-gray-900 border border-gray-200 hover:!bg-gray-50 hover:!border-gray-300 justify-start text-right h-14 rounded-lg',
+    },
+    {
+      variant: 'ghost',
+      color: 'menu-item-white',
+      class:
+        'text-gray-900 hover:!bg-gray-50 justify-start text-right h-14 rounded-lg',
     },
   ],
 });
