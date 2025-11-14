@@ -7,6 +7,7 @@ export interface Category {
   icon?: string;
   description?: string;
   order: number;
+  image?: string;
 }
 
 export interface Product {
@@ -83,6 +84,8 @@ export const categories: Category[] = [
     nameEn: 'Espresso',
     order: 1,
     description: 'قهوه‌های اسپرسو و انواع آن',
+    image:
+      'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=800&q=80',
   },
   {
     id: 'hot-drinks',
@@ -90,6 +93,8 @@ export const categories: Category[] = [
     nameEn: 'Hot Drinks',
     order: 2,
     description: 'نوشیدنی‌های گرم و داغ',
+    image:
+      'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=800&q=80',
   },
   {
     id: 'cold-coffee',
@@ -97,6 +102,8 @@ export const categories: Category[] = [
     nameEn: 'Cold Coffee',
     order: 3,
     description: 'قهوه‌های سرد و یخی',
+    image:
+      'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80',
   },
   {
     id: 'shakes',
@@ -104,6 +111,8 @@ export const categories: Category[] = [
     nameEn: 'Shakes',
     order: 4,
     description: 'شیک‌های خوشمزه و خنک',
+    image:
+      'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=800&q=80',
   },
   {
     id: 'cold-drinks',
@@ -111,6 +120,8 @@ export const categories: Category[] = [
     nameEn: 'Cold Drinks',
     order: 5,
     description: 'نوشیدنی‌های سرد و خنک',
+    image:
+      'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&q=80',
   },
   {
     id: 'tea',
@@ -118,6 +129,8 @@ export const categories: Category[] = [
     nameEn: 'Tea & Herbal Tea',
     order: 6,
     description: 'چای‌های مختلف و دمنوش‌های گیاهی',
+    image:
+      'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&q=80',
   },
   {
     id: 'ice-cream',
@@ -125,6 +138,8 @@ export const categories: Category[] = [
     nameEn: 'Ice Cream',
     order: 7,
     description: 'بستنی‌های خوشمزه',
+    image:
+      'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80',
   },
   {
     id: 'desserts',
@@ -132,6 +147,8 @@ export const categories: Category[] = [
     nameEn: 'Desserts',
     order: 8,
     description: 'دسرهای خوشمزه',
+    image:
+      'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80',
   },
   {
     id: 'breakfast',
@@ -139,6 +156,8 @@ export const categories: Category[] = [
     nameEn: 'Breakfast',
     order: 9,
     description: 'صبحانه‌های کامل و خوشمزه',
+    image:
+      'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80',
   },
   {
     id: 'sandwiches',
@@ -146,6 +165,8 @@ export const categories: Category[] = [
     nameEn: 'Sandwiches',
     order: 10,
     description: 'ساندویچ‌های متنوع',
+    image:
+      'https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=800&q=80',
   },
   {
     id: 'snacks',
@@ -153,6 +174,8 @@ export const categories: Category[] = [
     nameEn: 'Snacks',
     order: 11,
     description: 'تنقلات و میان‌وعده‌ها',
+    image:
+      'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&q=80',
   },
 ];
 
@@ -330,6 +353,25 @@ export const products: Product[] = [
     },
     tags: ['کارامل'],
   },
+  {
+    id: 'hot-5',
+    name: 'هات چاکلت',
+    nameEn: 'Hot Chocolate',
+    description: 'شکلات داغ خامه‌ای با مارشمالو',
+    price: 90000,
+    categoryId: 'hot-drinks',
+    isAvailable: true,
+    isPopular: true,
+    ingredients: ['شکلات', 'شیر', 'مارشمالو'],
+    image:
+      'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=800&q=80',
+    sizes: {
+      small: 85000,
+      medium: 90000,
+      large: 95000,
+    },
+    tags: ['شکلاتی', 'ویژه'],
+  },
 
   // قهوه سرد
   {
@@ -413,6 +455,25 @@ export const products: Product[] = [
     },
     tags: ['یخ‌زده', 'خامه‌ای'],
   },
+  {
+    id: 'cold-coffee-6',
+    name: 'آیس لاته',
+    nameEn: 'Iced Latte',
+    description: 'لاته سرد با یخ',
+    price: 140000,
+    categoryId: 'cold-coffee',
+    isAvailable: true,
+    isNew: true,
+    ingredients: ['شیر', 'اسپرسو'],
+    image:
+      'https://images.unsplash.com/photo-1461023058943-07fcbe16d635?w=800&q=80',
+    sizes: {
+      small: 130000,
+      medium: 140000,
+      large: 150000,
+    },
+    tags: ['خنک'],
+  },
 
   // شیک
   {
@@ -478,6 +539,20 @@ export const products: Product[] = [
     isAvailable: true,
     tags: ['قهوه‌ای'],
   },
+  {
+    id: 'shake-7',
+    name: 'شیک لوتوس',
+    nameEn: 'Lotus Shake',
+    description: 'شیک لوتوس خامه‌ای',
+    price: 100000,
+    categoryId: 'shakes',
+    isAvailable: true,
+    isNew: true,
+    ingredients: ['شیر', 'بستنی'],
+    image:
+      'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=800&q=80',
+    tags: ['لوتوس'],
+  },
 
   // نوشیدنی سرد
   {
@@ -532,14 +607,17 @@ export const products: Product[] = [
     name: 'موهیتو',
     nameEn: 'Mojito',
     description: 'موهیتو بدون الکل',
-    price: 65000,
+    price: 85000,
     categoryId: 'cold-drinks',
     isAvailable: true,
     isPopular: true,
+    ingredients: ['نعنا', 'لیمو'],
+    image:
+      'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&q=80',
     sizes: {
-      small: 60000,
-      medium: 65000,
-      large: 70000,
+      small: 80000,
+      medium: 85000,
+      large: 90000,
     },
     tags: ['نعناعی'],
   },
@@ -634,6 +712,20 @@ export const products: Product[] = [
       large: 50000,
     },
     tags: ['میوه‌ای'],
+  },
+  {
+    id: 'tea-8',
+    name: 'چای کرک',
+    nameEn: 'Karak Tea',
+    description: 'چای کرک خوشمزه',
+    price: 80000,
+    categoryId: 'tea',
+    isAvailable: true,
+    isNew: true,
+    ingredients: ['چای کرک'],
+    image:
+      'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&q=80',
+    tags: ['کرک'],
   },
 
   // بستنی
@@ -888,7 +980,7 @@ export const cafeInfo: CafeInfo = {
   },
   location: {
     lat: 35.6892,
-    lng: 51.3890,
+    lng: 51.389,
   },
 };
 
@@ -926,37 +1018,37 @@ export const menuSections: MenuSection[] = [
 
 // توابع کمکی
 export const getProductsByCategory = (categoryId: string): Product[] => {
-  return products.filter((product) => product.categoryId === categoryId);
+  return products.filter(product => product.categoryId === categoryId);
 };
 
 export const getCategoryById = (categoryId: string): Category | undefined => {
-  return categories.find((category) => category.id === categoryId);
+  return categories.find(category => category.id === categoryId);
 };
 
 export const getProductById = (productId: string): Product | undefined => {
-  return products.find((product) => product.id === productId);
+  return products.find(product => product.id === productId);
 };
 
 export const getPopularProducts = (): Product[] => {
-  return products.filter((product) => product.isPopular === true);
+  return products.filter(product => product.isPopular === true);
 };
 
 export const getNewProducts = (): Product[] => {
-  return products.filter((product) => product.isNew === true);
+  return products.filter(product => product.isNew === true);
 };
 
 export const getAvailableProducts = (): Product[] => {
-  return products.filter((product) => product.isAvailable === true);
+  return products.filter(product => product.isAvailable === true);
 };
 
 export const searchProducts = (query: string): Product[] => {
   const lowerQuery = query.toLowerCase();
   return products.filter(
-    (product) =>
+    product =>
       product.name.toLowerCase().includes(lowerQuery) ||
       product.nameEn?.toLowerCase().includes(lowerQuery) ||
       product.description?.toLowerCase().includes(lowerQuery) ||
-      product.tags?.some((tag) => tag.toLowerCase().includes(lowerQuery))
+      product.tags?.some(tag => tag.toLowerCase().includes(lowerQuery))
   );
 };
 
@@ -976,4 +1068,3 @@ export const database = {
 };
 
 export default database;
-

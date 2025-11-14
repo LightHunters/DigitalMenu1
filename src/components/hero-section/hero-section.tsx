@@ -27,10 +27,7 @@ const contactLinks = [
 
 const HeroSection = () => {
   return (
-    <section
-      className='bg-image-section h-48 w-full rounded-b-2xl px-7 flex 
-        flex-col items-center justify-between pt-7 pb-7 relative'
-    >
+    <section className='bg-image-section h-48 w-full rounded-b-2xl px-7 flex flex-col items-center justify-between pt-7 pb-7 relative'>
       <div className='w-full'>
         <div className='flex items-center justify-between'>
           <div className='self-start'>
@@ -49,8 +46,7 @@ const HeroSection = () => {
           <Link
             key={index}
             href={path}
-            className='p-2.5 flex items-center justify-center rounded-lg
-              bg-white/20 hover:bg-white/30 transition-colors'
+            className='p-2.5 flex items-center justify-center rounded-lg bg-white/20 hover:bg-white/30 transition-colors'
           >
             <Icon className='w-5 h-5 fill-white' />
           </Link>
