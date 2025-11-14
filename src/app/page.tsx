@@ -1,16 +1,22 @@
 'use client';
 
-import { CustomLink } from '@/components/CustomLink';
+import { useState } from 'react';
+import HeroSection from '@/components/hero-section/hero-section';
+import CategorySwiper from '@/components/menu/CategorySwiper';
+import CategoryButtons from '@/components/menu/CategoryButtons';
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>('hot-drinks');
+
   return (
-    <div className='p-section bg-bg-primary min-h-screen'>
-      <div className='space-y-8'>
-        <div>
-          <h1 className='text-heading text-3xl mb-4'>سیستم دیزاین کافه منو</h1>
-          <CustomLink href='#'>لینک</CustomLink>
-        </div>
-      </div>
+    <div className='bg-bg-primary min-h-screen'>
+      <HeroSection />
+      <CategoryButtons
+        selectedCategory={selectedCategory}
+        onCategorySelect={setSelectedCategory}
+      />
+      <CategorySwiper />
     </div>
   );
 }

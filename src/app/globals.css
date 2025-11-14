@@ -227,7 +227,7 @@
   --color-card-border: var(--card-border);
 
   /* Spacing */
-  --spacing-*: initial;
+  /* --spacing-*: initial; */
   --spacing-xs: var(--spacing-xs);
   --spacing-sm: var(--spacing-sm);
   --spacing-md: var(--spacing-md);
@@ -261,6 +261,9 @@
   --shadow-inner: var(--shadow-inner);
   --shadow-card: var(--card-shadow);
   --shadow-card-hover: var(--card-shadow-hover);
+
+  /* Background Images */
+  --background-image-section: url('/images/Background.png');
 }
 
 @layer base {
@@ -269,5 +272,57 @@
   }
   :lang(en) {
     --font-fira-sans: var(--font-fira-sans);
+  }
+}
+
+@layer utilities {
+  .bg-image-section {
+    background-image: var(--background-image-section);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Swiper Custom Styles */
+  .category-swiper {
+    padding-bottom: 24px !important;
+  }
+
+  .category-swiper .swiper-pagination {
+    bottom: 8px !important;
+  }
+
+  .category-swiper .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+  }
+
+  .category-swiper .swiper-pagination-bullet-active {
+    background: white;
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  .category-buttons-swiper {
+    padding: 0 16px;
+  }
+
+  .category-buttons-swiper .swiper-slide {
+    width: auto !important;
+  }
+
+  .category-buttons-swiper .swiper-wrapper {
+    align-items: center;
   }
 }
